@@ -3,54 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">ManyChat vs. Competitors | 2026 Audit</title>
+    <title id="seo-title">ManyChat vs. Competitors | 2026 Comparison Hub</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 40px; color: #333; }
-        .vs-box { background: #0084ff; color: white; padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
-        .feature-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .feature-table td, .feature-table th { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        .cta-btn { display: block; background: #ff3366; color: white; text-align: center; padding: 20px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1.2rem; }
+        :root { --blue: #0084ff; --pink: #ff3366; --dark: #1e272e; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: var(--dark); max-width: 800px; margin: auto; padding: 20px; }
+        .hero { background: var(--dark); color: white; padding: 40px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
+        .vs-table { width: 100%; border-collapse: collapse; margin: 25px 0; }
+        .vs-table td, .vs-table th { border: 1px solid #eee; padding: 15px; text-align: left; }
+        .cta { display: block; background: var(--pink); color: white; text-align: center; padding: 20px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1.3rem; margin-top: 30px; }
     </style>
 </head>
 <body>
-    <div class="vs-box">
-        <h1 id="main-heading">ManyChat vs. Global Competitors</h1>
-        <p>2026 Conversion & API Compliance Audit</p>
+
+    <div class="hero">
+        <h1 id="main-title">ManyChat vs. The World</h1>
+        <p>Official 2026 Automation Audit & ROI Breakdown</p>
     </div>
 
-    <div id="comparison-content">
-        <p>Select a competitor below to see the head-to-head breakdown:</p>
-        <ul id="competitor-list">
-            <li><a href="?vs=Chatfuel">ManyChat vs. Chatfuel</a></li>
-            <li><a href="?vs=Inro">ManyChat vs. Inro</a></li>
-            <li><a href="?vs=Botpress">ManyChat vs. Botpress</a></li>
-        </ul>
-    </div>
-
-    <div id="vs-details" style="display:none;">
-        <table class="feature-table">
+    <div id="content">
+        <p>In 2026, choosing the right Meta API partner is the difference between scaling and getting shadow-banned. See how ManyChat stacks up.</p>
+        
+        <table class="vs-table">
             <thead>
-                <tr style="background:#f4f4f4;"><th>Feature</th><th>ManyChat</th><th id="comp-name">Competitor</th></tr>
+                <tr style="background: #f9f9f9;"><th>Feature</th><th>ManyChat</th><th id="comp-name">Competitor</th></tr>
             </thead>
             <tbody>
                 <tr><td>Meta Tier 1 Partner</td><td>✅ Yes</td><td>❌ No</td></tr>
-                <tr><td>AI Step Integration</td><td>Native (GPT-5/Claude 4)</td><td>Webhook Only</td></tr>
-                <tr><td>2026 Setup Speed</td><td>< 5 Minutes</td><td>Hours</td></tr>
+                <tr><td>AI Integration</td><td>Native GPT-5/Claude</td><td>Webhook Only</td></tr>
+                <tr><td>2026 Compliance</td><td>Verified</td><td>Risk Flagged</td></tr>
             </tbody>
         </table>
-        <a href="https://manychat.partnerlinks.io/bbwxetk27f88-64kfxo" class="cta-btn">CLAIM MANYCHAT PRO DISCOUNT →</a>
+
+        <a href="https://manychat.partnerlinks.io/bbwxetk27f88-64kfxo" class="cta">ACTIVATE MANYCHAT PRO DISCOUNT →</a>
     </div>
 
     <script>
         const params = new URLSearchParams(window.location.search);
         const vs = params.get('vs');
-        
         if (vs) {
-            document.getElementById('competitor-list').style.display = 'none';
-            document.getElementById('vs-details').style.display = 'block';
-            document.getElementById('page-title').innerText = `ManyChat vs. ${vs} | 2026 Comparison`;
-            document.getElementById('main-heading').innerText = `ManyChat vs. ${vs}`;
-            document.getElementById('comp-name').innerText = vs;
+            const name = vs.charAt(0).toUpperCase() + vs.slice(1);
+            document.getElementById('seo-title').innerText = `ManyChat vs. ${name} | 2026 Comparison`;
+            document.getElementById('main-title').innerText = `ManyChat vs. ${name}`;
+            document.getElementById('comp-name').innerText = name;
         }
     </script>
 </body>
