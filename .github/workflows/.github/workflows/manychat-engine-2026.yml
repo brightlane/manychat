@@ -1,43 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ManyChat vs. Comparison Hub 2026</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; max-width: 800px; margin: auto; padding: 40px; line-height: 1.6; }
-        .vs-header { background: #0084ff; color: white; padding: 30px; border-radius: 12px; text-align: center; }
-        .feature-table { width: 100%; border-collapse: collapse; margin: 30px 0; }
-        .feature-table td, .feature-table th { border: 1px solid #ddd; padding: 15px; }
-        .cta { background: #ff3366; color: white; padding: 20px; text-align: center; border-radius: 8px; text-decoration: none; display: block; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <div id="content">
-        <h1 id="title">Loading Comparison...</h1>
-        <div class="vs-header">
-            <h2 id="vs-title">ManyChat vs. Competitor</h2>
-        </div>
-        
-        <table class="feature-table">
-            <thead><tr><th>Feature</th><th>ManyChat</th><th id="comp-name">Competitor</th></tr></thead>
-            <tbody>
-                <tr><td>Meta Partner</td><td>Tier 1 Official</td><td>Unverified</td></tr>
-                <tr><td>AI Step Logic</td><td>Native AI</td><td>Webhook Only</td></tr>
-                <tr><td>Starting Price</td><td>$15</td><td>Varies</td></tr>
-            </tbody>
-        </table>
+name: "ManyChat SEO Engine 2026"
 
-        <a href="https://manychat.partnerlinks.io/bbwxetk27f88-64kfxo" class="cta">GET MANYCHAT PRO DISCOUNT →</a>
-    </div>
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Manual Trigger'
+        required: false
+        default: 'Forced Update'
+  schedule:
+    - cron: '0 0 * * *'
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const vs = params.get('vs') || 'Competitor';
-        const formattedVs = vs.charAt(0).toUpperCase() + vs.slice(1);
-        
-        document.getElementById('title').innerText = `ManyChat vs. ${formattedVs} (2026 Audit)`;
-        document.getElementById('vs-title').innerText = `ManyChat vs. ${formattedVs}`;
-        document.getElementById('comp-name').innerText = formattedVs;
-    </script>
-</body>
-</html>
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Generator
+        run: python manychat-gen.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "brightlane-bot"
+          git config --global user.email "bot@brightlane.github.io"
+          git add .
+          git diff --staged --quiet || (git commit -m "Auto-update SEO pages" && git push origin main)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
