@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /manychat/
+Disallow: /private/
+Disallow: /temp/
+
+# Sitemaps (Ensure these paths are correct)
+Sitemap: https://brightlane.github.io/sitemap.xml
+Sitemap: https://brightlane.github.io/manychat-sitemap.xml
