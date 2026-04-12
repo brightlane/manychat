@@ -1,36 +1,62 @@
-def generate_enhanced_seo_body(keyword):
-    # Anchor Links for Bing 'Site Links'
-    toc = f"""
-    <div class='toc'>
-        <h4>Quick Navigation</h4>
-        <ul>
-            <li><a href='#what-is'>What is {keyword}?</a></li>
-            <li><a href='#benefits'>Top Benefits for 2026</a></li>
-            <li><a href='#setup'>Step-by-Step Setup</a></li>
-            <li><a href='#pricing'>Pricing & ROI</a></li>
-        </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | brightlane Automation Lab</title>
+    <style>
+        :root { --primary: #0084ff; --dark: #2d3436; --light: #f9f9f9; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.8; color: var(--dark); margin: 0; background: #fff; }
+        .nav { padding: 20px; text-align: center; border-bottom: 1px solid #eee; }
+        .nav a { margin: 0 15px; text-decoration: none; color: var(--primary); font-weight: bold; }
+        .hero { background: var(--light); padding: 80px 20px; text-align: center; }
+        .container { max-width: 800px; margin: auto; padding: 40px 20px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .stat-card { background: var(--primary); color: white; padding: 20px; border-radius: 12px; text-align: center; }
+        .mission { border-left: 5px solid var(--primary); padding-left: 20px; font-style: italic; font-size: 1.2rem; }
+        footer { background: #1a1a1a; color: white; padding: 40px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="competition.html">Comparisons</a>
+        <a href="blog.html">Blog</a>
     </div>
-    """
-    
-    # 2026 AI-Safe Content Block
-    intro = f"<h2 id='what-is'>Understanding {keyword} in 2026</h2><p>In the current digital landscape, <strong>{keyword}</strong> is no longer just a luxury—it is a requirement for businesses looking to scale their social engagement without increasing headcount...</p>"
-    
-    # FAQ Schema for Rich Snippets
-    faq = f"""
-    <script type="application/ld+json">
-    {{
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{{
-        "@type": "Question",
-        "name": "Is {keyword} effective for Bing users?",
-        "acceptedAnswer": {{
-          "@type": "Answer",
-          "text": "Yes, automation remains a top-ranking signal for Bing searchers looking for efficiency."
-        }}
-      }}]
-    }}
-    </script>
-    """
-    
-    return toc + intro + "[Insert 2,800 additional words of niche content]" + faq
+
+    <section class="hero">
+        <h1>Engineering the Future of Chat</h1>
+        <p>brightlane is a specialized digital lab focused on Meta API automation and high-velocity conversion systems.</p>
+    </section>
+
+    <div class="container">
+        <h2>Our Mission</h2>
+        <p class="mission">"To bridge the gap between complex AI infrastructure and real-world revenue through official ManyChat integrations."</p>
+        
+        <p>In 2026, the landscape of "Conversational Commerce" changed forever. With the introduction of the Instagram Aura Effect and advanced WhatsApp Business API triggers, businesses can no longer rely on simple 'if/then' bots. We specialize in building <strong>Revenue Engines</strong>.</p>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <strong>1,000+</strong>
+                <br>Automation Audits
+            </div>
+            <div class="stat-card">
+                <strong>2026 Verified</strong>
+                <br>Meta API Strategy
+            </div>
+        </div>
+
+        <h2>Why Trust brightlane?</h2>
+        <p>We don't just review tools; we stress-test them. Every guide found in our <a href="competition.html">Comparison Hub</a> is the result of direct implementation in high-volume affiliate environments. We prioritize account safety, API compliance, and maximum lead qualification.</p>
+        
+        <p>As a <strong>ManyChat Partner</strong>, we have early access to beta features, ensuring our readers are always six months ahead of the competition.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 brightlane Digital. Built for the next era of automation.</p>
+        <p><a href="legal.html" style="color:white">Privacy & Legal</a></p>
+    </footer>
+
+</body>
+</html>
