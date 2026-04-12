@@ -1,32 +1,35 @@
-name: Daily ManyChat SEO Farm
+name: Daily ManyChat SEO Run
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs at Midnight UTC every day
-  workflow_dispatch: # Allows manual trigger
+    - cron: '0 0 * * *'
+  workflow_dispatch: 
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # This block is the secret sauce for fixing "Exit Code 1" permissions
+    permissions:
+      contents: write
+    
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
-          python-version: '3.9'
+          fetch-depth: 0 # Fetches all history so push doesn't fail
 
-      - name: Install Dependencies
-        run: pip install requests
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
-      - name: Generate 20 New Pages
+      - name: Generate SEO Pages
         run: python manychat-gen.py
 
       - name: Commit and Push Changes
         run: |
-          git config --global user.name "SEO-Bot"
-          git config --global user.email "bot@github.com"
-          git add manychat/
-          git commit -m "Add 20 new high-earner ManyChat pages" || exit 0
-          git push
+          git config --global user.name "brightlane-bot"
+          git config --global user.email "bot@brightlane.github.io"
+          git add .
+          # The '|| true' ensures the workflow finishes even if no new pages were made
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Add daily 20-page SEO injection" && git push origin main)
