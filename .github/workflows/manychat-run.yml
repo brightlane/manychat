@@ -1,0 +1,23 @@
+name: manychat-run
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  seo-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: run-engine
+        run: python manychat-gen.py
+      - name: push-updates
+        run: |
+          git config --global user.name "brightlane-bot"
+          git config --global user.email "bot@brightlane.github.io"
+          git add .
+          git diff --staged --quiet || (git commit -m "Auto-update SEO pages" && git push origin main)
