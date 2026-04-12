@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal, Privacy & Contact | brightlane ManyChat Hub</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; max-width: 850px; margin: auto; padding: 40px 20px; background-color: #f4f7f6; }
+        .legal-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { color: #0084ff; border-bottom: 4px solid #ff3366; padding-bottom: 10px; }
+        h2 { color: #2d3436; margin-top: 35px; border-left: 5px solid #0084ff; padding-left: 15px; }
+        .disclosure { background: #fff3f3; border: 1px solid #ffcccc; padding: 20px; border-radius: 10px; font-weight: 500; }
+        .contact-info { display: flex; gap: 20px; margin-top: 20px; }
+        .contact-box { background: #f1f2f6; padding: 20px; border-radius: 10px; flex: 1; }
+        .back-btn { display: inline-block; margin-top: 40px; color: #0084ff; text-decoration: none; font-weight: bold; }
+        footer { text-align: center; margin-top: 50px; color: #999; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+
+    <div class="legal-card">
+        <h1>Legal & Privacy Hub</h1>
+
+        <section id="affiliate">
+            <h2>Affiliate Disclosure</h2>
+            <div class="disclosure">
+                <p>As a ManyChat Partner, brightlane earns from qualifying purchases. This site contains affiliate links to ManyChat.com. If you click and subscribe to a plan (Pro or Essential), we may receive a commission at no additional cost to you.</p>
+            </div>
+        </section>
+
+        <section id="privacy">
+            <h2>Privacy & Cookies</h2>
+            <p>We use cookies to ensure you get the best experience on our automation hub. This includes:</p>
+            <ul>
+                <li><strong>Tracking:</strong> PartnerStack cookies are used to track affiliate referrals.</li>
+                <li><strong>Exit Logic:</strong> We use an exit-intent script that may set a temporary local storage flag to prevent repetitive redirects.</li>
+            </ul>
+            <p>We do not store or sell your personal data. All data collection is limited to site performance and referral tracking.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-box">
+                    <strong>Support Email</strong><br>
+                    support@brightlane.github.io
+                </div>
+                <div class="contact-box">
+                    <strong>GitHub Repo</strong><br>
+                    github.com/brightlane
+                </div>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-btn">← Back to ManyChat Strategies</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 brightlane Digital. Independent ManyChat Partner Hub.</p>
+    </footer>
+
+    <script>
+    document.addEventListener('mouseleave', function(e) {
+        // Triggers when mouse leaves the top of the viewport
+        if (e.clientY < 0 && !localStorage.getItem('exit_active')) {
+            localStorage.setItem('exit_active', 'true');
+            // Redirects to your primary ManyChat affiliate link
+            window.location.href = "https://manychat.partnerlinks.io/bbwxetk27f88-64kfxo";
+        }
+    });
+    </script>
+
+</body>
+</html>
