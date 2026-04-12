@@ -1,40 +1,32 @@
-name: "ManyChat SEO Engine 2026"
+name: manychat-run
 
 on:
   workflow_dispatch:
-    inputs:
-      reason:
-        description: 'Manual Trigger'
-        required: false
-        default: 'Forced Update'
   schedule:
     - cron: '0 0 * * *'
 
 jobs:
-  build:
+  seo-build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
     steps:
-      - name: Checkout Repository
+      - name: checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Python
+      - name: setup-python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Run Generator
+      - name: run-engine
         run: python manychat-gen.py
 
-      - name: Commit and Push
+      - name: push-updates
         run: |
           git config --global user.name "brightlane-bot"
           git config --global user.email "bot@brightlane.github.io"
           git add .
-          git diff --staged --quiet || (git commit -m "Auto-update SEO pages" && git push origin main)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git diff --staged --quiet || (git commit -m "update" && git push origin main)
