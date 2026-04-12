@@ -3,45 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ManyChat vs. Competitors | 2026 Head-to-Head Comparison Hub</title>
+    <title id="page-title">ManyChat vs. Competitors | 2026 Audit</title>
     <style>
-        :root { --primary: #0084ff; --vs-red: #ff3366; --dark: #1e272e; }
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: var(--dark); margin: 0; padding: 0; }
-        .hero { background: var(--dark); color: white; padding: 60px 20px; text-align: center; }
-        .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
-        .vs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .vs-card { border: 2px solid #f1f1f1; border-radius: 15px; padding: 25px; transition: 0.3s; position: relative; overflow: hidden; }
-        .vs-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .vs-badge { background: var(--vs-red); color: white; padding: 4px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 40px; color: #333; }
+        .vs-box { background: #0084ff; color: white; padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
+        .feature-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .feature-table td, .feature-table th { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .cta-btn { display: block; background: #ff3366; color: white; text-align: center; padding: 20px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1.2rem; }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>ManyChat vs. The World (2026)</h1>
-        <p>Unbiased, data-driven comparisons to help you choose the right automation stack.</p>
+    <div class="vs-box">
+        <h1 id="main-heading">ManyChat vs. Global Competitors</h1>
+        <p>2026 Conversion & API Compliance Audit</p>
     </div>
 
-    <div class="container">
-        <h2>Top 2026 Comparisons</h2>
-        <div class="vs-grid">
-            <div class="vs-card">
-                <span class="vs-badge">HOT COMPARISON</span>
-                <h3>ManyChat vs. Inrō</h3>
-                <p>Which platform handles the 2026 Instagram "Aura" update better?</p>
-                <a href="manychat/manychat-vs-inro-2026.html" class="btn">View Audit</a>
-            </div>
-            
-            <div class="vs-card">
-                <h3>ManyChat vs. Chatfuel</h3>
-                <p>Old giants face off. See who wins on pricing and AI integration.</p>
-                <a href="manychat/manychat-vs-chatfuel-review.html" class="btn">View Audit</a>
-            </div>
-        </div>
+    <div id="comparison-content">
+        <p>Select a competitor below to see the head-to-head breakdown:</p>
+        <ul id="competitor-list">
+            <li><a href="?vs=Chatfuel">ManyChat vs. Chatfuel</a></li>
+            <li><a href="?vs=Inro">ManyChat vs. Inro</a></li>
+            <li><a href="?vs=Botpress">ManyChat vs. Botpress</a></li>
+        </ul>
     </div>
 
-    <footer style="text-align:center; padding: 40px; background: #f9f9f9;">
-        <p><a href="index.html">Home</a> | <a href="legal.html">Legal</a></p>
-    </footer>
+    <div id="vs-details" style="display:none;">
+        <table class="feature-table">
+            <thead>
+                <tr style="background:#f4f4f4;"><th>Feature</th><th>ManyChat</th><th id="comp-name">Competitor</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Meta Tier 1 Partner</td><td>✅ Yes</td><td>❌ No</td></tr>
+                <tr><td>AI Step Integration</td><td>Native (GPT-5/Claude 4)</td><td>Webhook Only</td></tr>
+                <tr><td>2026 Setup Speed</td><td>< 5 Minutes</td><td>Hours</td></tr>
+            </tbody>
+        </table>
+        <a href="https://manychat.partnerlinks.io/bbwxetk27f88-64kfxo" class="cta-btn">CLAIM MANYCHAT PRO DISCOUNT →</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const vs = params.get('vs');
+        
+        if (vs) {
+            document.getElementById('competitor-list').style.display = 'none';
+            document.getElementById('vs-details').style.display = 'block';
+            document.getElementById('page-title').innerText = `ManyChat vs. ${vs} | 2026 Comparison`;
+            document.getElementById('main-heading').innerText = `ManyChat vs. ${vs}`;
+            document.getElementById('comp-name').innerText = vs;
+        }
+    </script>
 </body>
 </html>
