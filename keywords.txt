@@ -1,1 +1,88 @@
+import random
+import datetime
+import os
 
+# --- CONFIGURATION ---
+KEYWORD_FILE = "keywords.txt"
+MANYCHAT_DIR = "manychat"
+LINKS = [
+    "https://manychat.partnerlinks.io/bbwxetk27f88-64kfxo",
+    "https://manychat.partnerlinks.io/98hj6b3pr28k-4znb59",
+    "https://manychat.partnerlinks.io/emwcbue22i01-ogcg6e",
+    "https://manychat.partnerlinks.io/t8let4hhqtqg-wki14",
+    "https://manychat.partnerlinks.io/nwkkk7vkps17"
+]
+
+# 2026 Freshness Bank (Script picks 20 at random for each page)
+FRESH_BANK = [
+    "Meta API v18.0", "Instagram Aura Effect", "Comment-to-DM velocity", 
+    "WhatsApp Business API 2026", "AI-powered flow logic", "zero-click conversion",
+    "Shopify ManyChat integration", "TikTok DM beta", "Telegram automation 2026",
+    "conversational commerce", "lead qualification AI", "smart-delayed replies",
+    "engagement-to-sale pipeline", "official Meta partner tools", "low-latency bots"
+]
+
+def generate_page(keyword):
+    # 1. Create unique slug and check for existence
+    slug = keyword.lower().replace(" ", "-").replace(":", "").replace("?", "") + ".html"
+    path = os.path.join(MANYCHAT_DIR, slug)
+    
+    if os.path.exists(path):
+        return False # Skip if exists
+
+    # 2. Pick dynamic elements
+    affiliate = random.choice(LINKS)
+    fresh_words = ", ".join(random.sample(FRESH_BANK, 5))
+    today = datetime.date.today().strftime("%B %d, 2026")
+
+    # 3. Build HTML (optimized for Bing 2026)
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{keyword} | Official 2026 Automation Guide</title>
+    <meta name="description" content="Master {keyword} using ManyChat's 2026 AI tools. Updated {today}.">
+</head>
+<body style="font-family: Arial; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px;">
+    <header style="background: #f4f4f4; padding: 20px; border-radius: 10px;">
+        <h1>Strategy: {keyword}</h1>
+        <p><strong>Published:</strong> {today} | <strong>Current Trend:</strong> {fresh_words}</p>
+    </header>
+    
+    <main>
+        <section id="comparison">
+            <h2>The 2026 Efficiency Audit</h2>
+            <p>For {keyword}, speed is the primary ranking factor in 2026. ManyChat provides the official infrastructure to handle {fresh_words} at scale.</p>
+            <div style="background: #eef; padding: 20px; border-left: 5px solid blue;">
+                <p><strong>Verdict:</strong> ManyChat is the high-conversion choice for {keyword}.</p>
+                <a href="{affiliate}" style="color: red; font-weight: bold; font-size: 1.2rem;">GET THE 2026 PRO DISCOUNT →</a>
+            </div>
+        </section>
+        
+        <section id="content">
+            <p>[Your 3,000-word SEO article for {keyword} goes here]</p>
+        </section>
+    </main>
+</body>
+</html>"""
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(html)
+    return True
+
+def main():
+    if not os.path.exists(MANYCHAT_DIR): os.makedirs(MANYCHAT_DIR)
+    
+    # Load all 1,000 keys
+    with open(KEYWORD_FILE, "r") as f:
+        all_keys = [line.strip() for line in f if line.strip()]
+
+    count = 0
+    for kw in all_keys:
+        if count >= 20: break # Hard limit to prevent GitHub rate limiting
+        if generate_page(kw):
+            print(f"Success: {kw}")
+            count += 1
+
+if __name__ == "__main__":
+    main()
