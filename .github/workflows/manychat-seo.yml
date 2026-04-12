@@ -1,0 +1,32 @@
+name: Daily ManyChat SEO Farm
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at Midnight UTC every day
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Generate 20 New Pages
+        run: python manychat-gen.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "SEO-Bot"
+          git config --global user.email "bot@github.com"
+          git add manychat/
+          git commit -m "Add 20 new high-earner ManyChat pages" || exit 0
+          git push
