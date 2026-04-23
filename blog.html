@@ -1,77 +1,136 @@
+import fs from "fs";
+
+// =========================
+// 🔑 AFFILIATE LINKS
+// =========================
+const LINKS = {
+  igGrowth: "https://manychat.partnerlinks.io/bbwxetk27f88-64kfxo",
+  freeTrial: "https://manychat.partnerlinks.io/emwcbue22i01-ogcg6e",
+  instagramAutomation: "https://manychat.partnerlinks.io/8k59yhm0l32j-z7dk2i",
+  creators: "https://manychat.partnerlinks.io/fsbpv50o2t2b-orca59",
+  ecommerce: "https://manychat.partnerlinks.io/57bltjtmr5tj-tz7ji",
+  pricing: "https://manychat.partnerlinks.io/98hj6b3pr28k-4znb59",
+  main: "https://manychat.partnerlinks.io/nwkkk7vkps17"
+};
+
+// =========================
+// 🧠 KEYWORDS (expand to 1000)
+// =========================
+const keywords = [
+  "instagram dm automation",
+  "instagram growth strategy",
+  "how to get instagram followers",
+  "instagram lead generation",
+  "dm marketing strategy",
+  "how to sell on instagram dms",
+  "whatsapp marketing automation",
+  "ecommerce chatbot automation",
+  "sms marketing automation",
+  "messenger automation marketing",
+  "creator monetization instagram"
+];
+
+// =========================
+// 🧩 CONTENT BUILDERS
+// =========================
+function intro(keyword) {
+  return `Many people struggle with ${keyword}, but automation changes everything. Instead of manually handling conversations, you can use ManyChat to turn traffic into sales automatically.`;
+}
+
+function body1(keyword) {
+  return `The key idea behind ${keyword} is speed and automation. When someone interacts with your content, ManyChat responds instantly, increasing conversions and engagement.`;
+}
+
+function body2(keyword) {
+  return `With ManyChat, you can build automated DM flows that handle ${keyword} without manual effort. This allows creators and businesses to scale faster.`;
+}
+
+function steps() {
+  return `
+1. Connect your Instagram or platform  
+2. Create a DM automation flow  
+3. Set keyword triggers  
+4. Send offers automatically  
+5. Optimize based on conversions  
+`;
+}
+
+function outro(keyword) {
+  return `If you are serious about improving ${keyword}, automation is no longer optional. It is the fastest way to scale attention into revenue.`;
+}
+
+// =========================
+// 🧾 HTML GENERATOR
+// =========================
+function generateHTML(keyword) {
+  return `
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ManyChat 2026 Strategy Hub | brightlane</title>
-    <meta name="description" content="The ultimate guide to ManyChat automation in 2026. Explore 1,000+ keywords, comparisons, and industry niches.">
-    <style>
-        :root { --primary: #0084ff; --secondary: #ff3366; --text: #2d3436; }
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: var(--text); margin: 0; padding: 0; }
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        header { background: #f8f9fa; padding: 60px 20px; text-align: center; border-bottom: 3px solid var(--primary); }
-        
-        /* The SEO Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { border: 1px solid #eee; border-radius: 12px; padding: 20px; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card h3 { color: var(--primary); margin-top: 0; }
-        
-        /* Sticky Affiliate Sidebar/Bar */
-        .sticky-cta { position: sticky; top: 20px; background: #eef7ff; padding: 20px; border-radius: 10px; border-left: 5px solid var(--primary); }
-        .btn { display: inline-block; background: var(--secondary); color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; }
-        
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
-    </style>
+  <title>${keyword} - ManyChat Automation Guide</title>
+  <meta name="description" content="Learn how to use ManyChat for ${keyword} and automate your growth and sales.">
 </head>
-<body>
 
-<header>
-    <h1>The ManyChat 2026 Automation Hub</h1>
-    <p>Scaling Affiliate Revenue through Official Meta API Integrations</p>
-    <a href="https://manychat.partnerlinks.io/bbwxetk27f88-64kfxo" class="btn">ACTIVATE 2026 PRO DISCOUNT</a>
-</header>
+<body style="font-family:Arial; max-width:900px; margin:40px; line-height:1.7;">
 
-<div class="container">
-    <div style="display: flex; gap: 40px; flex-wrap: wrap;">
-        
-        <div style="flex: 2; min-width: 300px;">
-            <h2>Latest Automation Strategies</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>ManyChat vs Inrō 2026</h3>
-                    <p>Which platform wins the new Instagram Aura Effect battle? We break down the pricing and ROI.</p>
-                    <a href="manychat/manychat-vs-inro-2026.html">Read Full Audit →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>Real Estate Lead Gen</h3>
-                    <p>Automate your property listings and qualify buyers in 2 minutes using ManyChat WhatsApp.</p>
-                    <a href="manychat/manychat-for-real-estate.html">View Setup →</a>
-                </div>
-                
-                <div class="card">
-                    <h3>The 2026 Pricing Guide</h3>
-                    <p>Is the ManyChat Essential Plan better than Pro for beginners? A complete fee breakdown.</p>
-                    <a href="manychat/manychat-pricing-2026.html">See Pricing →</a>
-                </div>
-            </div>
-        </div>
+<h1>${keyword} Using ManyChat Automation</h1>
 
-        <aside style="flex: 1; min-width: 250px;">
-            <div class="sticky-cta">
-                <h3>Affiliate Resource</h3>
-                <p>Don't leave money on the table. Use the 2026 "Zero-Click" flow to maximize conversions.</p>
-                <a href="https://manychat.partnerlinks.io/98hj6b3pr28k-4znb59" class="btn" style="width: 100%; text-align: center;">Get Started Free</a>
-            </div>
-        </aside>
+<p>${intro(keyword)}</p>
 
-    </div>
+<h2>Why this matters</h2>
+<p>${body1(keyword)}</p>
+
+<div>
+  <a href="${LINKS.igGrowth}">Grow Instagram with ManyChat</a>
 </div>
 
-<footer style="text-align: center; padding: 40px; background: #333; color: white; margin-top: 60px;">
-    <p>&copy; 2026 brightlane Digital. All automation strategies are verified.</p>
-</footer>
+<h2>How ManyChat helps</h2>
+<p>${body2(keyword)}</p>
+
+<div>
+  <a href="${LINKS.instagramAutomation}">Instagram Automation Tool</a>
+</div>
+
+<h2>Step-by-step system</h2>
+<pre>${steps()}</pre>
+
+<h2>Why automation wins</h2>
+<p>Manual messaging cannot scale. Automation allows you to handle unlimited conversations at once.</p>
+
+<div>
+  <a href="${LINKS.freeTrial}">Start Free Trial</a>
+</div>
+
+<h2>Final thoughts</h2>
+<p>${outro(keyword)}</p>
+
+<div>
+  <a href="${LINKS.pricing}">View Pricing</a> |
+  <a href="${LINKS.main}">Get Started</a>
+</div>
 
 </body>
 </html>
+`;
+}
+
+// =========================
+// ⚙️ GENERATOR ENGINE
+// =========================
+function run() {
+  if (!fs.existsSync("output")) {
+    fs.mkdirSync("output");
+  }
+
+  keywords.forEach((kw, i) => {
+    const html = generateHTML(kw);
+    const filename = kw.toLowerCase().replace(/ /g, "-") + ".html";
+
+    fs.writeFileSync(`output/${filename}`, html);
+    console.log(`Generated ${i + 1}: ${filename}`);
+  });
+
+  console.log("\n✅ DONE: Blog system generated successfully.");
+}
+
+run();
