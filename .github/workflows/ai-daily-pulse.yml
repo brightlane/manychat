@@ -1,0 +1,47 @@
+name: AI Daily Pulse & Freshness Sync
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at midnight UTC every day
+  push:
+    branches:
+      - main
+    paths:
+      - 'affiliate.json'  # Trigger if you add new cities/programs
+  workflow_dispatch:      # Allows manual "Run" from GitHub Actions tab
+
+jobs:
+  refresh-and-promote:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Vulture 10K Engine
+        run: python vulture_gen.py  # Updates your 10k pages & sitemap
+
+      - name: Update AI Metadata & Commit
+        run: |
+          git config --global user.name "AI-Promoter-Bot"
+          git config --global user.email "bot@brightlane.io"
+          git add .
+          # Check if there are changes before committing
+          git diff --quiet && git diff --staged --quiet || (git commit -m "AI Freshness Sync: $(date +'%Y-%m-%d')" && git push)
+
+      - name: Ping AI Crawlers (IndexNow)
+        run: |
+          # Pings Bing and other AI-centric search engines (like Perplexity partners)
+          # Replace YOUR_KEY with your Bing Webmaster Key if you have one
+          curl -X GET "https://www.bing.com/indexnow?url=https://brightlane.github.io/MothersDayFlowers/sitemap.xml&key=YOUR_KEY"
+          
+      - name: Notify Search Console
+        run: |
+          echo "Freshness signal sent for ai-manifest.md and sitemap.xml"
