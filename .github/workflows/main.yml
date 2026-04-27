@@ -5,6 +5,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # THIS IS THE HEARTBEAT (Runs every 6 hours)
+  schedule:
+    - cron: '0 */6 * * *'
 
 permissions:
   contents: write
@@ -32,7 +35,7 @@ jobs:
       - name: Install Dependencies
         run: npm install fs-extra
 
-      - name: 🌳 Plant the ManyChat Forest
+      - name: 🌳 Plant/Refresh the ManyChat Forest
         run: node generate-manychat-pages.js
 
       - name: 📡 Generate ManyChat Sitemap
@@ -43,7 +46,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "Vulture-Bot"
           git add .
-          git commit -m "Vulture 10K: ManyChat Forest Sync" || echo "No changes"
+          git commit -m "Vulture Heartbeat: ManyChat Forest Sync" || echo "No changes"
           git push origin main --force
 
       - name: 🌐 Upload Pages Artifact
